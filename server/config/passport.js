@@ -6,6 +6,7 @@ const GithubStrategy = require('./strategies/github');
 const MicrosoftStrategy = require('./strategies/microsoft');
 const AppleStrategy = require('./strategies/apple');
 const LinkedinStrategy = require('./strategies/linkedin');
+const DiscordStrategy = require('./strategies/discord');
 
 module.exports = (passport) => {
     // Google Strategy
@@ -28,6 +29,8 @@ module.exports = (passport) => {
 
     // Linkedin
     passport.use(LinkedinStrategy)
+
+    passport.use(DiscordStrategy)
 
     passport.serializeUser((user, done) => done(null, user.id));
     passport.deserializeUser(async (id, done) => {

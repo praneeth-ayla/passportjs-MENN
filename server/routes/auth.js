@@ -60,6 +60,15 @@ router.get('/linkedin/callback',
     })
 );
 
+router.get('/discord', passport.authenticate('discord'));
+router.get('/discord/callback',
+    passport.authenticate('discord', {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: '/login'
+    })
+);
+
+
 router.get('/logout', (req, res) => {
     req.logout((err) => {
         if (err) return res.status(500).send('Logout error');
