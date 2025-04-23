@@ -39,6 +39,13 @@ export default function Home() {
 		);
 	};
 
+	const handleLoginTwitter = () => {
+		window.open(
+			`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/twitter`,
+			"_self"
+		);
+	};
+
 	const handleLogout = async () => {
 		await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/logout`, {
 			credentials: "include",
@@ -49,7 +56,7 @@ export default function Home() {
 	return (
 		<main>
 			{user ? (
-				<div>
+				<div className="flex justify-center items-center h-screen flex-col gap-3">
 					<h1>Welcome, {user.name}!</h1>
 					<p>Email: {user.email}</p>
 					<button onClick={handleLogout}>Logout</button>
@@ -59,6 +66,9 @@ export default function Home() {
 					<h1 className="text-3xl font-bold pb-5">Login Using:</h1>
 					<button onClick={handleLogin}>Sign in with Google</button>
 					<button onClick={handleLoginFB}>Sign in with FB</button>
+					<button onClick={handleLoginTwitter}>
+						Sign in with Twitter
+					</button>
 				</div>
 			)}
 		</main>

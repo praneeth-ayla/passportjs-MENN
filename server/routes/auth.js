@@ -17,6 +17,14 @@ router.get('/facebook/callback',
     })
 );
 
+router.get('/twitter', passport.authenticate('twitter'));
+router.get('/twitter/callback',
+    passport.authenticate('twitter', {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: '/login'
+    })
+);
+
 router.get('/logout', (req, res) => {
     req.logout((err) => {
         if (err) return res.status(500).send('Logout error');
