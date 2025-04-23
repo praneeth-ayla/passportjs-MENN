@@ -56,6 +56,7 @@ export default function Home() {
 		{ name: "GitHub", provider: "github" },
 		{ name: "Microsoft", provider: "microsoft" },
 		{ name: "Apple", provider: "apple" },
+		{ name: "LinkedIn", provider: "linkedin" },
 	];
 
 	return (

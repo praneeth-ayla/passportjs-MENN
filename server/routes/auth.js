@@ -34,7 +34,6 @@ router.get('/github/callback',
 );
 
 router.get('/microsoft', passport.authenticate('microsoft'));
-
 router.post('/microsoft/callback',
     passport.authenticate('microsoft', {
         successRedirect: process.env.CLIENT_URL,
@@ -45,12 +44,19 @@ router.post('/microsoft/callback',
 
 
 router.get('/apple', passport.authenticate('apple'));
-
 router.post('/apple/callback',
     passport.authenticate('apple', {
         successRedirect: process.env.CLIENT_URL,
         failureRedirect: '/login',
         failureMessage: true
+    })
+);
+
+router.get('/linkedin', passport.authenticate('linkedin'));
+router.get('/linkedin/callback',
+    passport.authenticate('linkedin', {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: '/login'
     })
 );
 
