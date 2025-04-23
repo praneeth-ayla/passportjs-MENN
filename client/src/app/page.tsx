@@ -46,6 +46,13 @@ export default function Home() {
 		);
 	};
 
+	const handleLoginGithub = () => {
+		window.open(
+			`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/github`,
+			"_self"
+		);
+	};
+
 	const handleLogout = async () => {
 		await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/logout`, {
 			credentials: "include",
@@ -68,6 +75,9 @@ export default function Home() {
 					<button onClick={handleLoginFB}>Sign in with FB</button>
 					<button onClick={handleLoginTwitter}>
 						Sign in with Twitter
+					</button>
+					<button onClick={handleLoginGithub}>
+						Sign in with Github
 					</button>
 				</div>
 			)}

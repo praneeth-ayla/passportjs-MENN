@@ -2,6 +2,7 @@ const User = require('../models/User');
 const GoogleStrategy = require('./strategies/google');
 const FacebookStrategy = require('./strategies/facebook');
 const TwitterStrategy = require('./strategies/twitter');
+const GithubStrategy = require('./strategies/github');
 
 module.exports = (passport) => {
     // Google Strategy
@@ -12,6 +13,8 @@ module.exports = (passport) => {
 
     // Twitter Strategy
     passport.use(TwitterStrategy)
+
+    passport.use(GithubStrategy)
 
     passport.serializeUser((user, done) => done(null, user.id));
     passport.deserializeUser(async (id, done) => {

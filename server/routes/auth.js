@@ -25,6 +25,14 @@ router.get('/twitter/callback',
     })
 );
 
+router.get('/github', passport.authenticate('github'));
+router.get('/github/callback',
+    passport.authenticate('github', {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: '/login'
+    })
+);
+
 router.get('/logout', (req, res) => {
     req.logout((err) => {
         if (err) return res.status(500).send('Logout error');
