@@ -32,6 +32,13 @@ export default function Home() {
 		);
 	};
 
+	const handleLoginFB = () => {
+		window.open(
+			`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/facebook`,
+			"_self"
+		);
+	};
+
 	const handleLogout = async () => {
 		await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/logout`, {
 			credentials: "include",
@@ -48,9 +55,10 @@ export default function Home() {
 					<button onClick={handleLogout}>Logout</button>
 				</div>
 			) : (
-				<div className="flex flex-col gap-3">
-					<h1>Login with Google</h1>
+				<div className="flex justify-center items-center h-screen flex-col gap-3">
+					<h1 className="text-3xl font-bold pb-5">Login Using:</h1>
 					<button onClick={handleLogin}>Sign in with Google</button>
+					<button onClick={handleLoginFB}>Sign in with FB</button>
 				</div>
 			)}
 		</main>

@@ -9,6 +9,14 @@ router.get('/google/callback',
     })
 );
 
+router.get('/facebook', passport.authenticate('facebook'));
+router.get('/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: '/login'
+    })
+);
+
 router.get('/logout', (req, res) => {
     req.logout((err) => {
         if (err) return res.status(500).send('Logout error');
