@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 interface User {
 	providerId: string;
-	providerType?: string;
+	provider?: string;
 	email: string;
 	name: string;
 	avatar?: string;

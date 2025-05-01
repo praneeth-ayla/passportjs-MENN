@@ -8,7 +8,6 @@ const socialProviders = [
 	{ name: "GitHub", provider: "github" },
 	{ name: "Microsoft", provider: "microsoft" },
 	{ name: "Apple", provider: "apple" },
-	{ name: "LinkedIn", provider: "linkedin" },
 	{ name: "Discord", provider: "discord" },
 ];
 
@@ -29,7 +28,7 @@ export default function Home() {
 				<div className="flex justify-center items-center h-screen flex-col gap-3">
 					<h1>Welcome, {user.name}!</h1>
 					<p>Email: {user.email}</p>
-					<p>Provider: {user.providerType}</p>
+					<p>Provider: {user.provider}</p>
 					{user.avatar && (
 						<img
 							src={user.avatar}
