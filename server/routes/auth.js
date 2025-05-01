@@ -52,13 +52,6 @@ router.post('/apple/callback',
     })
 );
 
-router.get('/linkedin', passport.authenticate('linkedin'));
-router.get('/linkedin/callback',
-    passport.authenticate('linkedin', {
-        successRedirect: process.env.CLIENT_URL,
-        failureRedirect: '/login'
-    })
-);
 
 router.get('/discord', passport.authenticate('discord'));
 router.get('/discord/callback',
